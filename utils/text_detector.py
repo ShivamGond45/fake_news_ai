@@ -6,10 +6,10 @@ classifier = pipeline(
 )
 
 def detect_fake_news(text):
-    
-    # yaha tumhara ML model use hoga
 
-    label = "FAKE"
-    score = 0.87
+    result = classifier(text)[0]   # model ka output
+
+    label = result['label']        # FAKE / REAL
+    score = result['score']        # confidence
 
     return label, score
